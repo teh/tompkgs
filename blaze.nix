@@ -1,10 +1,13 @@
 { pkgs, pythonPackages, fetchurl, dynd_python, datashape, multipledispatch, cytoolz, toolz, unzip }:
+let
+version = "0.6.7";
 
+in
 pythonPackages.buildPythonPackage {
-  name = "blaze-0.6.6";
-  buildInputs = with pythonPackages; [
+  name = "blaze-${version}";
+  propagatedBuildInputs = with pythonPackages; [
     numpy
-    sqlalchemy
+    sqlalchemy9
     pandas
     flask
     pytest
@@ -21,7 +24,7 @@ pythonPackages.buildPythonPackage {
     toolz
   ];
   srcs = fetchurl {
-    url = "https://github.com/ContinuumIO/blaze/archive/0.6.6.zip";
-    sha256 = "0ds0164fp4104n1i0z331x0c5c9y80g85456nnywzhnsmiv1d784";
+    url = "https://github.com/ContinuumIO/blaze/archive/${version}.zip";
+    sha256 = "1f68xg2djrkrjghpn9hyli2h19xv3mj7z5r66778yj5w9v10jkli";
   };
 }

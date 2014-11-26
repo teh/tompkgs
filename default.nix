@@ -7,6 +7,7 @@ rec {
   twill = pkgs.callPackage ./twill.nix {};
   flask_testing = pkgs.callPackage ./flask_testing.nix { twill = twill; };
   wtforms = pkgs.callPackage ./wtforms.nix {};
+  seaborn = pkgs.callPackage ./seaborn.nix {};
 
   libdynd = pkgs.callPackage ./libdynd.nix {};
   dynd_python = pkgs.callPackage ./dynd_python.nix { libdynd = libdynd; };
