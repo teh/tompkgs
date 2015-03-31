@@ -1,6 +1,6 @@
-{ pkgs, pythonPackages, fetchurl, dynd_python, datashape, multipledispatch, cytoolz, toolz, unzip }:
+{ pkgs, pythonPackages, fetchurl, dynd_python, datashape, multipledispatch, cytoolz, toolz, unzip, odo, bcolz }:
 let
-version = "0.6.7";
+version = "0.7.3";
 
 in
 pythonPackages.buildPythonPackage {
@@ -22,9 +22,10 @@ pythonPackages.buildPythonPackage {
     multipledispatch
     cytoolz
     toolz
+    odo
   ];
   srcs = fetchurl {
     url = "https://github.com/ContinuumIO/blaze/archive/${version}.zip";
-    sha256 = "1f68xg2djrkrjghpn9hyli2h19xv3mj7z5r66778yj5w9v10jkli";
+    sha256 = "1di4kq3mp61akycjjfq5m38r991f2a50jap0hs9xslnjdgdwp9xk";
   };
 }

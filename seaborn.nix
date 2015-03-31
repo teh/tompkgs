@@ -11,6 +11,7 @@ pythonPackages.buildPythonPackage {
     unzip
     scipy
     matplotlib
+    psycopg2
   ];
   srcs = fetchurl {
     url = "https://github.com/mwaskom/seaborn/archive/v${version}.zip";
