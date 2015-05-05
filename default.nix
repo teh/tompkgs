@@ -11,7 +11,9 @@ rec {
   statsmodels = pkgs.callPackage ./statsmodels.nix { patsy = patsy; };
   patsy = pkgs.callPackage ./patsy.nix {};
   bcolz = pkgs.callPackage ./bcolz.nix {};
+  joblib = pkgs.callPackage ./joblib.nix {};
   libdynd = pkgs.callPackage ./libdynd.nix {};
+  numba = pkgs.callPackage ./numba.nix {};
   dynd_python = pkgs.callPackage ./dynd_python.nix { libdynd = libdynd; };
   datashape = pkgs.callPackage ./datashape.nix { multipledispatch = multipledispatch; };
   multipledispatch = pkgs.callPackage ./multipledispatch.nix {};
@@ -23,6 +25,7 @@ rec {
   };
   cytoolz = pkgs.callPackage ./cytoolz.nix {};
   toolz = pkgs.callPackage ./toolz.nix {};
+  gensim = pkgs.callPackage ./gensim.nix {};
   rdbtools = pkgs.callPackage ./rdbtools.nix {};
   pysistence = pkgs.callPackage ./pysistence.nix {};
   protobuf-to-dict = pkgs.callPackage ./protobuf-to-dict.nix {};
