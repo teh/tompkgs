@@ -34,7 +34,8 @@ pythonPackages.buildPythonPackage {
     decorator
   ];
   srcs = fetchurl {
-    url = "https://github.com/ContinuumIO/odo/archive/${version}.zip";
-    sha256 = "0yddnmv3wh7pi586dx4fkgqqlmzaqsjszb5wnfnilap82s5s0c1w";
+#    url = "https://github.com/ContinuumIO/odo/archive/${version}.zip";
+    url = "https://github.com/ContinuumIO/odo/archive/2f05cf90d1fcc5d95eaa55682f08b9d1b06f87bb.zip";
+    sha256 = "00rpl1p78xrrrn4awx2h5n2g3z7rl7c78b272vcb1xzj5gw2lld7";
   };
 }

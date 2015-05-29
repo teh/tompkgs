@@ -15,6 +15,6 @@ pythonPackages.buildPythonPackage {
   ];
   srcs = fetchurl {
     url = "https://github.com/mwaskom/seaborn/archive/v${version}.zip";
-    sha256 = "005v8cmlkz4dflbiiakhnbha6m4w10kh9ybvcv5f5jv01z77k6za";
+    sha256 = "1yxgw07rcnfm385gq7djfp8dliibm484r6rskprf55ipz16y838h";
   };
 }

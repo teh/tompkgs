@@ -1,7 +1,8 @@
 { pythonPackages, fetchurl, unzip, multipledispatch }:
 
-pythonPackages.buildPythonPackage {
-  name = "datashape-0.4.4";
+pythonPackages.buildPythonPackage rec {
+  version = "0.4.5";
+  name = "datashape-${version}";
   buildInputs = [
     pythonPackages.numpy
     pythonPackages.dateutil
@@ -9,7 +10,7 @@ pythonPackages.buildPythonPackage {
     unzip
   ];
   srcs = fetchurl {
-    url = "https://github.com/ContinuumIO/datashape/archive/0.4.4.zip";
-    sha256 = "088bjkw9iavaayzbjwvn5ab1454cqmvi78k97flsgv78lnzhg8ff";
+    url = "https://github.com/ContinuumIO/datashape/archive/${version}.zip";
+    sha256 = "17irppylbin0z954padg6zzlj97rk7vd6n87z01xdlwfvys3ybzr";
   };
 }

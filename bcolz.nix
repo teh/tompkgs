@@ -19,13 +19,14 @@ let
   };
 in
 pythonPackages.buildPythonPackage rec {
-    name = "bcolz-0.8.1";
+    version = "v0.9.0";
+    name = "bcolz-${version}";
 
     propagatedBuildInputs = [ cython pythonPackages.numpy ];
 
     src = fetchurl {
-      url = "https://pypi.python.org/packages/source/b/bcolz/bcolz-0.8.1.tar.gz";
-      md5 = "763d762644f96f79c7822897c4371c13";
+      url = "https://github.com/Blosc/bcolz/archive/${version}.zip";
+      sha256 = "0dnxz3nx79c2dapdyi9908iwb2i7z9kblssmwm1ax318vxmz5vrx";
     };
 
     meta = with stdenv.lib; {

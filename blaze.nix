@@ -1,6 +1,6 @@
 { pkgs, pythonPackages, fetchurl, dynd_python, datashape, multipledispatch, cytoolz, toolz, unzip, odo, bcolz }:
 let
-version = "0.7.3";
+version = "0.8.0";
 
 in
 pythonPackages.buildPythonPackage {
@@ -26,6 +26,6 @@ pythonPackages.buildPythonPackage {
   ];
   srcs = fetchurl {
     url = "https://github.com/ContinuumIO/blaze/archive/${version}.zip";
-    sha256 = "1di4kq3mp61akycjjfq5m38r991f2a50jap0hs9xslnjdgdwp9xk";
+    sha256 = "0yjpnixg90lq6gxl45ygkc1nqsjlm4xprrsg3nq1s7fb6asansk0";
   };
 }
