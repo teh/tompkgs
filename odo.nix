@@ -1,6 +1,5 @@
 { pkgs, pythonPackages, fetchurl, datashape, multipledispatch, cytoolz, toolz, unzip }:
 let
-version = "0.3.1";
 
   networkx = pythonPackages.buildPythonPackage rec {
     name = "networkx-1.9.1";
@@ -20,7 +19,8 @@ version = "0.3.1";
 
 
 in
-pythonPackages.buildPythonPackage {
+pythonPackages.buildPythonPackage rec {
+  version = "0.3.2";
   name = "odo-${version}";
   propagatedBuildInputs = with pythonPackages; [
     numpy
@@ -34,8 +34,8 @@ pythonPackages.buildPythonPackage {
     decorator
   ];
   srcs = fetchurl {
-#    url = "https://github.com/ContinuumIO/odo/archive/${version}.zip";
-    url = "https://github.com/ContinuumIO/odo/archive/2f05cf90d1fcc5d95eaa55682f08b9d1b06f87bb.zip";
-    sha256 = "00rpl1p78xrrrn4awx2h5n2g3z7rl7c78b272vcb1xzj5gw2lld7";
+    url = "https://github.com/ContinuumIO/odo/archive/${version}.zip";
+#    url = "https://github.com/ContinuumIO/odo/archive/aa51499e522f128fd5c09f0d752e2b8a2229b521.zip";
+    sha256 = "0xk5bngnyf3hnhx5ng1ymhilqybi0wksn119scdlb1l1giyh6byz";
   };
 }
