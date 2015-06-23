@@ -13,6 +13,6 @@
     meta = with stdenv.lib; {
       description = "Joblib is a set of tools to provide **lightweight pipelining in";
       homepage = http://packages.python.org/joblib/;
-      license = licenses.bsd;
+      license = licenses.bsd3;
     };
   }

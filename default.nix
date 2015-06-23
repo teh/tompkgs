@@ -29,7 +29,6 @@ rec {
   rdbtools = pkgs.callPackage ./rdbtools.nix {};
   pysistence = pkgs.callPackage ./pysistence.nix {};
   protobuf-to-dict = pkgs.callPackage ./protobuf-to-dict.nix {};
-  fullpypi = pkgs.callPackage ./fullpypi.nix {};
   blaze = pkgs.callPackage ./blaze.nix {
     multipledispatch = multipledispatch;
     cytoolz = cytoolz;

@@ -17,7 +17,7 @@ let
     meta = with stdenv.lib; {
       description = "# llvmlite";
       homepage = https://github.com/numba/llvmlite;
-      license = licenses.bsd;
+      license = licenses.bsd3;
     };
   };
   funcsigs = pythonPackages.buildPythonPackage rec {
