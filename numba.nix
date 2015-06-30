@@ -1,19 +1,19 @@
-{ pkgs, stdenv, pythonPackages, fetchurl, ...}:
+{ pkgs, stdenv, pythonPackages, fetchurl, unzip, ...}:
 let
   llvmlite = pythonPackages.buildPythonPackage rec {
-    version = "0.4.0";
+    version = "0.5.1";
     name = "llvmlite-${version}";
 
     doCheck = false;
-    buildInputs = [ pkgs.cmake pkgs.llvm_35 pkgs.python pkgs.libffi ];
+    buildInputs = [ pkgs.cmake pkgs.llvm_35 pkgs.python pkgs.libffi unzip ];
     propagatedBuildInputs = with pythonPackages; [ enum34 ];
 
+    patches = [ ./correct-import.patch ];
+
     src = fetchurl {
-      url = "https://pypi.python.org/packages/source/l/llvmlite/llvmlite-${version}.tar.gz";
-      md5 = "7d2b6e9edfe16df476385e3492eeac39";
+      url = "https://github.com/numba/llvmlite/archive/v${version}.zip";
+      sha256 = "0g6jsc46wi3s2lf378rxkr6r89hpchzr0mj985k478931648d71g";
     };
-    # TODO header is in the wrong place??
-    NIX_CFLAGS_COMPILE = "-D_WIN32";
     meta = with stdenv.lib; {
       description = "# llvmlite";
       homepage = https://github.com/numba/llvmlite;

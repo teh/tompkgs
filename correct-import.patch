@@ -1,0 +1,22 @@
+commit 174418fdefa90be653d4f605bf99e5377ff8f401
+Author: Tom Hunger <tehunger@gmail.com>
+Date:   Tue Jun 30 17:08:32 2015 +0100
+
+    config location patch.
+
+diff --git a/ffi/initfini.cpp b/ffi/initfini.cpp
+index 1940256..34b194c 100644
+--- a/ffi/initfini.cpp
++++ b/ffi/initfini.cpp
+@@ -3,11 +3,7 @@
+ #include "llvm-c/Target.h"
+ 
+ #include "core.h"
+-#ifdef _WIN32
+ #include "llvm/Config/llvm-config.h"
+-#else
+-#include "llvm/Config/config.h"
+-#endif
+ 
+ extern "C" {
+ 

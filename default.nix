@@ -5,8 +5,10 @@ rec {
   flask_wtf = pkgs.callPackage ./flask_wtf.nix { wtforms = wtforms; };
   pydkim = pkgs.callPackage ./pydkim.nix {};
   twill = pkgs.callPackage ./twill.nix {};
+  sklearn-pandas = pkgs.callPackage ./sklearn-pandas.nix {};
   flask_testing = pkgs.callPackage ./flask_testing.nix { twill = twill; };
   wtforms = pkgs.callPackage ./wtforms.nix {};
+  dask = pkgs.callPackage ./dask.nix { cytoolz = cytoolz; toolz = toolz; bcolz = bcolz; };
   seaborn = pkgs.callPackage ./seaborn.nix {};
   statsmodels = pkgs.callPackage ./statsmodels.nix { patsy = patsy; };
   patsy = pkgs.callPackage ./patsy.nix {};
