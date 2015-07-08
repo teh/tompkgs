@@ -15,7 +15,8 @@ rec {
   bcolz = pkgs.callPackage ./bcolz.nix {};
   joblib = pkgs.callPackage ./joblib.nix {};
   libdynd = pkgs.callPackage ./libdynd.nix {};
-  numba = pkgs.callPackage ./numba.nix {};
+  llvmlite = pkgs.callPackage ./llvmlite.nix {};
+  numba = pkgs.callPackage ./numba.nix { llvmlite = llvmlite; };
   dynd_python = pkgs.callPackage ./dynd_python.nix { libdynd = libdynd; };
   datashape = pkgs.callPackage ./datashape.nix { multipledispatch = multipledispatch; };
   multipledispatch = pkgs.callPackage ./multipledispatch.nix {};
