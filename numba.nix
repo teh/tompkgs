@@ -1,4 +1,4 @@
-{ pkgs, stdenv, pythonPackages, fetchurl, unzip, ...}:
+{ pkgs, stdenv, pythonPackages, fetchurl, llvmlite, unzip, ...}:
 let
   funcsigs = pythonPackages.buildPythonPackage rec {
     name = "funcsigs-0.4";
