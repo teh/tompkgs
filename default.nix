@@ -28,6 +28,7 @@ rec {
   };
   cytoolz = pkgs.callPackage ./cytoolz.nix {};
   toolz = pkgs.callPackage ./toolz.nix {};
+  yapf = pkgs.callPackage ./yapf.nix {};
   gensim = pkgs.callPackage ./gensim.nix {};
   rdbtools = pkgs.callPackage ./rdbtools.nix {};
   pysistence = pkgs.callPackage ./pysistence.nix {};
@@ -42,10 +43,6 @@ rec {
     odo = odo;
   };
 
-  # broken:
-
-  #  pydatalog = pkgs.callPackage ./pydatalog.nix {};
-  # output path ‘/nix/store/v74yksig6h9shcrnq1zsfgf8q5kcffn6-hg-archive’ should have r:md5 hash ‘a5b273793b0c00265abc3d007e7c654b’, instead has ‘df2b9de24399338f6c9263a5f9082dff’
-
-
+  theano = pkgs.callPackage ./theano.nix {};
+  pylearn2 = pkgs.callPackage ./pylearn2.nix { theano = theano; };
 }
