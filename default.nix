@@ -44,5 +44,9 @@ rec {
   };
 
   theano = pkgs.callPackage ./theano.nix {};
+  sklearn_0_16 = pkgs.callPackage ./scikit-learn.nix {};
   pylearn2 = pkgs.callPackage ./pylearn2.nix { theano = theano; };
+  scikit-nn = pkgs.callPackage ./scikit-nn.nix { pylearn2 = pylearn2; };
+
+  scrapy = pkgs.callPackage ./scrapy.nix {};
 }
