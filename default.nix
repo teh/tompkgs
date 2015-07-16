@@ -44,7 +44,7 @@ rec {
   };
 
   pystruct = pkgs.callPackage ./pystruct.nix {};
-
+  pyrsistent = pkgs.callPackage ./pyrsistent.nix {};
   theano = pkgs.callPackage ./theano.nix {};
   sklearn_0_16 = pkgs.callPackage ./scikit-learn.nix {};
   pylearn2 = pkgs.callPackage ./pylearn2.nix { theano = theano; };
