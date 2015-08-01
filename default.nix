@@ -44,6 +44,7 @@ rec {
   };
 
   pystruct = pkgs.callPackage ./pystruct.nix {};
+  fastfm = pkgs.callPackage ./fastfm.nix {};
   pyrsistent = pkgs.callPackage ./pyrsistent.nix {};
   theano = pkgs.callPackage ./theano.nix {};
   sklearn_0_16 = pkgs.callPackage ./scikit-learn.nix {};
