@@ -51,5 +51,7 @@ rec {
   pylearn2 = pkgs.callPackage ./pylearn2.nix { theano = theano; };
   scikit-nn = pkgs.callPackage ./scikit-nn.nix { pylearn2 = pylearn2; };
 
+  jedi = pkgs.callPackage ./jedi.nix {};
+
   scrapy = pkgs.callPackage ./scrapy.nix {};
 }
