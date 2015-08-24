@@ -1,4 +1,5 @@
 { pkgs ? import <nixpkgs> {}, ... }:
+
 rec {
   diff_match_patch = pkgs.callPackage ./diff_match_patch.nix {};
   flask_sqlalchemy = pkgs.callPackage ./flask_sqlalchemy.nix {};
@@ -52,6 +53,8 @@ rec {
   scikit-nn = pkgs.callPackage ./scikit-nn.nix { pylearn2 = pylearn2; };
 
   jedi = pkgs.callPackage ./jedi.nix {};
+
+  pymc2 = pkgs.callPackage ./pymc2.nix {};
 
   scrapy = pkgs.callPackage ./scrapy.nix {};
 }
