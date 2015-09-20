@@ -1,13 +1,13 @@
 { pkgs, stdenv, pythonPackages, fetchurl,  ...}:
 
 pythonPackages.buildPythonPackage rec {
-    name = "Theano-0.7.0";
+    name = "Theano-0.7.1a1";
 
-    propagatedBuildInputs = with pythonPackages; [ numpy scipy ];
+    propagatedBuildInputs = with pythonPackages; [ numpy scipy six ];
 
     src = fetchurl {
-      url = "https://pypi.python.org/packages/source/T/Theano/Theano-0.7.0.tar.gz";
-      md5 = "099a9575801b71252b5bbbc3c34ed45a";
+      url = "https://github.com/Theano/Theano/archive/rel-0.7.1a1.zip";
+      sha256 = "13bqvdms427xblslx022wiw1k5an9skkwyallgnwwq60p4v9qvkc";
     };
 
     meta = with stdenv.lib; {
