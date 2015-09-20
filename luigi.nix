@@ -1,5 +1,23 @@
 { stdenv, pythonPackages, fetchurl }:
 let
+  python-daemon = pythonPackages.buildPythonPackage rec {
+    name = "python-daemon-2.0.6";
+
+    src = fetchurl {
+      url = "https://pypi.python.org/packages/source/p/python-daemon/python-daemon-2.0.6.tar.gz";
+      md5 = "049508c47c8fa054e91ec9a3c572f939";
+    };
+    doCheck = false;
+
+    propagatedBuildInputs = with pythonPackages; [ docutils lockfile ];
+
+    meta = with stdenv.lib; {
+      description = "This library implements the well-behaved daemon specification of";
+      homepage = https://alioth.debian.org/projects/python-daemon/;
+      license = licenses.asl2;
+    };
+  };
+
   cached-property = pythonPackages.buildPythonPackage rec {
     name = "cached-property-1.2.0";
 
@@ -25,7 +43,12 @@ pythonPackages.buildPythonPackage rec {
       md5 = "948a6574e4d4e1d1d8b8a355ca0cdaf7";
     };
 
-    propagatedBuildInputs = with pythonPackages; [ cached-property pyparsing tornado ];
+    propagatedBuildInputs = with pythonPackages; [
+        cached-property
+        pyparsing
+        tornado
+        python-daemon
+    ];
 
     meta = with stdenv.lib; {
       homepage = https://github.com/spotify/luigi;
