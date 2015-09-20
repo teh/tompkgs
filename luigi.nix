@@ -1,5 +1,22 @@
 { stdenv, pythonPackages, fetchurl }:
 let
+  lockfile-local = pythonPackages.buildPythonPackage rec {
+    name = "lockfile-0.10.2";
+
+    src = fetchurl {
+      url = "https://pypi.python.org/packages/source/l/lockfile/lockfile-0.10.2.tar.gz";
+      md5 = "1aa6175a6d57f082cd12e7ac6102ab15";
+    };
+    doCheck = false;
+
+    propagatedBuildInputs = with pythonPackages; [ pbr ];
+
+    meta = with stdenv.lib; {
+      homepage = http://launchpad.net/pylockfile;
+      license = licenses.mit;
+    };
+  };
+
   python-daemon = pythonPackages.buildPythonPackage rec {
     name = "python-daemon-2.0.6";
 
@@ -9,7 +26,7 @@ let
     };
     doCheck = false;
 
-    propagatedBuildInputs = with pythonPackages; [ docutils lockfile ];
+    propagatedBuildInputs = with pythonPackages; [ docutils lockfile-local ];
 
     meta = with stdenv.lib; {
       description = "This library implements the well-behaved daemon specification of";
