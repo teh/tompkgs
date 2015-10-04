@@ -59,4 +59,6 @@ rec {
   scrapely = pkgs.callPackage ./scrapely.nix {};
 
   luigi = pkgs.callPackage ./luigi.nix {};
+
+  arctic = pkgs.callPackage ./arctic.nix {};
 }
