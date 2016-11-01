@@ -139,21 +139,6 @@ let
       homepage = http://launchpad.net/pylockfile;
     };
   };
-  mock13 = pythonPackages.buildPythonPackage rec {
-    name = "mock-1.3.0";
-
-    src = fetchurl {
-      url = "https://pypi.python.org/packages/source/m/mock/mock-1.3.0.tar.gz";
-      md5 = "73ee8a4afb3ff4da1b4afa287f39fdeb";
-    };
-
-    propagatedBuildInputs = with pythonPackages; [ pbr six ];
-
-    meta = with stdenv.lib; {
-      description = "mock is a library for testing in Python. It allows you to replace parts of";
-      homepage = https://github.com/testing-cabal/mock;
-    };
-  };
   python-daemon = pythonPackages.buildPythonPackage rec {
     name = "python-daemon-2.0.6";
 
@@ -161,7 +146,7 @@ let
       url = "https://pypi.python.org/packages/source/p/python-daemon/python-daemon-2.0.6.tar.gz";
       md5 = "049508c47c8fa054e91ec9a3c572f939";
     };
-    buildInputs = with pythonPackages; [ mock13 testscenarios unittest2 funcsigs ];
+    buildInputs = with pythonPackages; [ mock testscenarios unittest2 funcsigs ];
     propagatedBuildInputs = with pythonPackages; [ lockfile docutils ];
 
     meta = with stdenv.lib; {
@@ -186,14 +171,14 @@ let
     };
   };
   pymlconf = pythonPackages.buildPythonPackage rec {
-    name = "pymlconf-0.3.18";
+    name = "pymlconf-0.6.0";
 
     src = fetchurl {
-      url = "https://pypi.python.org/packages/source/p/pymlconf/pymlconf-0.3.18.tar.gz";
-      md5 = "b51304c45e92b12c568b8d6e7e76d995";
+      url = "mirror://pypi/p/pymlconf/${name}.tar.gz";
+      sha256 = "09xi0cxl7v3z1y0z88j07s6srnd362p7rl14blsrkc6ia9d2igkc";
     };
     doCheck = false;
-    propagatedBuildInputs = with pythonPackages; [ pyaml ];
+    propagatedBuildInputs = with pythonPackages; [ pyyaml ];
 
     meta = with stdenv.lib; {
       description = "pymlconf";
@@ -208,7 +193,7 @@ let
       md5 = "ab2e06cb8fe70ed53733eb78d6cf88ec";
     };
 
-    propagatedBuildInputs = with pythonPackages; [ pytest port-for pathpy pymlconf mirakuru pyyaml ];
+    propagatedBuildInputs = with pythonPackages; [ pytest port-for pathpy pymlconf mirakuru pyaml ];
 
     meta = with stdenv.lib; {
       description = "pytest-dbfixtures";
@@ -217,11 +202,11 @@ let
   };
 in
 pythonPackages.buildPythonPackage rec {
-    version = "v1.8.0";
+    version = "v1.32.0";
     name = "arctic-${version}";
     src = fetchurl {
       url = "https://github.com/manahl/arctic/archive/${version}.zip";
-      sha256 = "0yyckaa999qlqmlwdrwb9vfw23scng3qfhmns48lpvwr8cqqrp3i";
+      sha256 = "1iy931bbicb795znvnlrbvspqs8vbkvr855p7mxa2bmcrv0v5wxb";
     };
     buildInputs = with pythonPackages; [
         pytest_xdist
@@ -245,7 +230,9 @@ pythonPackages.buildPythonPackage rec {
         enum34
         decorator
         dateutil
-    ];
+  ];
+
+   doCheck = false; # mockextras is broken
     # Need to remove build directory otherwise py.test tries to import
     # two different test configs:
     preCheck = ''
