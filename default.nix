@@ -61,4 +61,6 @@ rec {
   luigi = pkgs.callPackage ./luigi.nix {};
 
   arctic = pkgs.callPackage ./arctic.nix {};
+
+  edward = pkgs.callPackage ./edward.nix { tensorflow = pkgs.pythonPackages.tensorflowCuDNN; };
 }
