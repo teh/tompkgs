@@ -9,14 +9,10 @@ rec {
   sklearn-pandas = pkgs.callPackage ./sklearn-pandas.nix {};
   flask_testing = pkgs.callPackage ./flask_testing.nix { twill = twill; };
   wtforms = pkgs.callPackage ./wtforms.nix {};
-  dask = pkgs.callPackage ./dask.nix { cytoolz = cytoolz; toolz = toolz; bcolz = bcolz; };
   seaborn = pkgs.callPackage ./seaborn.nix {};
   statsmodels = pkgs.callPackage ./statsmodels.nix { patsy = patsy; };
   patsy = pkgs.callPackage ./patsy.nix {};
   bcolz = pkgs.callPackage ./bcolz.nix {};
-  joblib = pkgs.callPackage ./joblib.nix {};
-  libdynd = pkgs.callPackage ./libdynd.nix {};
-  dynd_python = pkgs.callPackage ./dynd_python.nix { libdynd = libdynd; };
   datashape = pkgs.callPackage ./datashape.nix { multipledispatch = multipledispatch; };
   multipledispatch = pkgs.callPackage ./multipledispatch.nix {};
   odo = pkgs.callPackage ./odo.nix {
