@@ -28,15 +28,6 @@ rec {
   rdbtools = pkgs.callPackage ./rdbtools.nix {};
   pysistence = pkgs.callPackage ./pysistence.nix {};
   protobuf-to-dict = pkgs.callPackage ./protobuf-to-dict.nix {};
-  blaze = pkgs.callPackage ./blaze.nix {
-    multipledispatch = multipledispatch;
-    cytoolz = cytoolz;
-    toolz = toolz;
-    datashape = datashape;
-    dynd_python = dynd_python;
-    bcolz = bcolz;
-    odo = odo;
-  };
 
   pystruct = pkgs.callPackage ./pystruct.nix {};
   fastfm = pkgs.callPackage ./fastfm.nix {};
