@@ -202,11 +202,11 @@ let
   };
 in
 pythonPackages.buildPythonPackage rec {
-    version = "v1.32.0";
+    version = "v1.37.0";
     name = "arctic-${version}";
     src = fetchurl {
       url = "https://github.com/manahl/arctic/archive/${version}.zip";
-      sha256 = "1iy931bbicb795znvnlrbvspqs8vbkvr855p7mxa2bmcrv0v5wxb";
+      sha256 = "136m8fhsjlr5nj2iazalnwbnqkpyvk42zliqvy3nhpjflqm7cci1";
     };
     buildInputs = with pythonPackages; [
         pytest_xdist
@@ -217,7 +217,6 @@ pythonPackages.buildPythonPackage rec {
         procps
         pytestcov
         pytest
-        setuptools_cython
         cython
         unzip
     ];
